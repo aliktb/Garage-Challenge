@@ -12,16 +12,6 @@ public class Garage {
   ArrayList<Vehicle> listOfVehicles = new ArrayList<>();
 
 
-  public Car polo = new Car("polo", 1.6f, 120, "Volkswagen", "Road", 160, 300);
-
-  public Car A4 = new Car("A4", 2f, 155, "Audi", "Road", 240, 500);
-
-  public Bus londonBus = new Bus("londonBus", 4f, 60, "Alexander Dennis", "Bus Lane", 80, "TFL");
-
-  public Yacht everGiven = new Yacht("everGiven", 16, 60, "yachtcompany", "sea", 25000000, false);
-
-  public Bus bendyBus = new Bus("bendyBus", 3.5f, 45, "Scania", "Bus Lane", 50, "Not In Service");
-
 
   // fixes vehicle based on vehicle's bill
   public void repair(Vehicle vehicleID) {
@@ -207,9 +197,11 @@ public class Garage {
   public void removeVehicleByType(String VehicleType) {
 
 
-    for (int i = listOfVehicles.size(); i < 0; i--) {
+    for (int i = listOfVehicles.size() - 1; i > 0; i--) {
 
-      if (listOfVehicles.get(i).getName().equals(VehicleType)) {
+
+
+      if (listOfVehicles.get(i).getClass().getSimpleName().equals(VehicleType)) {
 
         listOfVehicles.remove(i);
 
