@@ -6,13 +6,28 @@ public class Car extends Vehicle {
   private int horsepower;
   private float range;
 
+  // Constructor
 
-  public Car(int horsepower, float range) {
-    super();
+  public Car(float engineSize, int topSpeed, String manufacturer, String mediumOfTravel,
+      int horsepower, float range) {
+    super(engineSize, topSpeed, manufacturer, mediumOfTravel);
     this.horsepower = horsepower;
     this.range = range;
   }
 
+  // Car specific Methods
+
+  public float calcBill() {
+
+    float bill = horsepower * (range - 10);
+
+    return bill;
+
+
+  }
+
+
+  // Getters & Setters
 
   public int getHorsepower() {
     return horsepower;
@@ -33,6 +48,7 @@ public class Car extends Vehicle {
     this.range = range;
   }
 
+  // toString() Method
 
   @Override
   public String toString() {

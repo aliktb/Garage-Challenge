@@ -5,13 +5,30 @@ public class Bus extends Vehicle {
   private int numberOfPassengers;
   private String operator;
 
+  // Constructor
 
-  public Bus(int numberOfPassengers, String operator) {
-    super();
+  public Bus(float engineSize, int topSpeed, String manufacturer, String mediumOfTravel,
+      int numberOfPassengers, String operator) {
+    super(engineSize, topSpeed, manufacturer, mediumOfTravel);
     this.numberOfPassengers = numberOfPassengers;
     this.operator = operator;
   }
 
+
+
+  // Bus specific Methods
+
+  public float calcBill() {
+
+    float bill = numberOfPassengers * this.getEngineSize();
+
+    return bill;
+
+
+  }
+
+
+  // Getters & Setters
 
   public int getNumberOfPassengers() {
     return numberOfPassengers;
@@ -32,6 +49,7 @@ public class Bus extends Vehicle {
     this.operator = operator;
   }
 
+  // toString() Method
 
   @Override
   public String toString() {
