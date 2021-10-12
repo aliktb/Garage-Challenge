@@ -207,9 +207,11 @@ public class Garage {
   public void removeVehicleByType(String VehicleType) {
 
 
-    for (int i = listOfVehicles.size(); i < 0; i--) {
+    for (int i = listOfVehicles.size() - 1; i > 0; i--) {
 
-      if (listOfVehicles.get(i).getName().equals(VehicleType)) {
+      // System.out.println(listOfVehicles.get(i).getClass().getSimpleName());
+
+      if (listOfVehicles.get(i).getClass().getSimpleName().equals(VehicleType)) {
 
         listOfVehicles.remove(i);
 

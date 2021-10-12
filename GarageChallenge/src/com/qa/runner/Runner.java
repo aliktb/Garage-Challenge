@@ -32,9 +32,13 @@ public class Runner {
 
     myGarage.seeVehicleByID("londonBus");
 
-    myGarage.removeVehicleByType("Car");
+    System.out.println(".......");
+
+    myGarage.removeVehicleByType("Bus");
 
     myGarage.removeVehicleByID("polo");
+
+    System.out.println("\\\\\\\\");
 
     myGarage.seeAllVehicles();
 
