@@ -2,22 +2,44 @@ package com.qa.vehicle;
 
 public class Vehicle {
 
+
+  private String name;
   private float engineSize;
   private int topSpeed;
   private String manufacturer;
   private String mediumOfTravel;
 
+
   // Constructor
 
-  public Vehicle(float engineSize, int topSpeed, String manufacturer, String mediumOfTravel) {
+  public Vehicle(String name, float engineSize, int topSpeed, String manufacturer,
+      String mediumOfTravel) {
     super();
+    this.name = name;
     this.engineSize = engineSize;
     this.topSpeed = topSpeed;
     this.manufacturer = manufacturer;
     this.mediumOfTravel = mediumOfTravel;
   }
 
+  // calcBill method
+
+  public float calcBill() {
+
+    return 0f;
+
+  }
+
+
   // Getters & Setters
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
 
   public float getEngineSize() {
     return engineSize;
@@ -51,13 +73,20 @@ public class Vehicle {
     this.mediumOfTravel = mediumOfTravel;
   }
 
-  // toString() Method
+
 
   @Override
   public String toString() {
-    return "Vehicle [engineSize=" + engineSize + ", topSpeed=" + topSpeed + ", manufacturer="
-        + manufacturer + ", mediumOfTravel=" + mediumOfTravel + "]";
+    return "Vehicle [name=" + name + ", engineSize=" + engineSize + ", topSpeed=" + topSpeed
+        + ", manufacturer=" + manufacturer + ", mediumOfTravel=" + mediumOfTravel + ", calcBill()="
+        + calcBill() + ", getEngineSize()=" + getEngineSize() + ", getTopSpeed()=" + getTopSpeed()
+        + ", getManufacturer()=" + getManufacturer() + ", getMediumOfTravel()="
+        + getMediumOfTravel() + ", getName()=" + getName() + "]";
   }
+
+
+
+  // toString() Method
 
 
 

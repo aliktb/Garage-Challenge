@@ -8,18 +8,19 @@ public class Car extends Vehicle {
 
   // Constructor
 
-  public Car(float engineSize, int topSpeed, String manufacturer, String mediumOfTravel,
-      int horsepower, float range) {
-    super(engineSize, topSpeed, manufacturer, mediumOfTravel);
+  public Car(String name, float engineSize, int topSpeed, String manufacturer,
+      String mediumOfTravel, int horsepower, float range) {
+    super(name, engineSize, topSpeed, manufacturer, mediumOfTravel);
     this.horsepower = horsepower;
     this.range = range;
   }
 
   // Car specific Methods
 
+  @Override
   public float calcBill() {
 
-    float bill = horsepower * (range - 10);
+    float bill = ((horsepower - 100) * (range - 10)) / 20;
 
     return bill;
 
@@ -48,12 +49,19 @@ public class Car extends Vehicle {
     this.range = range;
   }
 
-  // toString() Method
-
   @Override
   public String toString() {
-    return "Car [horsepower=" + horsepower + ", range=" + range + "]";
+    return "Car [getName()=" + getName() + ", getEngineSize()=" + getEngineSize()
+        + ", getTopSpeed()=" + getTopSpeed() + ", getManufacturer()=" + getManufacturer()
+        + ", getMediumOfTravel()=" + getMediumOfTravel() + ", toString()=" + super.toString()
+        + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", horsepower=" + horsepower
+        + ", range=" + range + ", calcBill()=" + calcBill() + ", getHorsepower()=" + getHorsepower()
+        + ", getRange()=" + getRange() + "]";
   }
+
+
+
+  // toString() Method
 
 
 

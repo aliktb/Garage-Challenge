@@ -8,9 +8,9 @@ public class Yacht extends Vehicle {
 
   // Constructor
 
-  public Yacht(float engineSize, int topSpeed, String manufacturer, String mediumOfTravel, int cost,
-      boolean sails) {
-    super(engineSize, topSpeed, manufacturer, mediumOfTravel);
+  public Yacht(String name, float engineSize, int topSpeed, String manufacturer,
+      String mediumOfTravel, int cost, boolean sails) {
+    super(name, engineSize, topSpeed, manufacturer, mediumOfTravel);
     this.cost = cost;
     this.sails = sails;
   }
@@ -18,6 +18,7 @@ public class Yacht extends Vehicle {
 
   // Yacht specific Methods
 
+  @Override
   public float calcBill() {
 
     float bill = cost * 0.1f;
@@ -48,12 +49,18 @@ public class Yacht extends Vehicle {
     this.sails = sails;
   }
 
-  // toString() Method
 
   @Override
   public String toString() {
-    return "Yacht [cost=" + cost + ", sails=" + sails + "]";
+    return "Yacht [getName()=" + getName() + ", getEngineSize()=" + getEngineSize()
+        + ", getTopSpeed()=" + getTopSpeed() + ", getManufacturer()=" + getManufacturer()
+        + ", getMediumOfTravel()=" + getMediumOfTravel() + ", toString()=" + super.toString()
+        + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", cost=" + cost
+        + ", sails=" + sails + ", calcBill()=" + calcBill() + ", getCost()=" + getCost()
+        + ", isSails()=" + isSails() + "]";
   }
+
+  // toString() Method
 
 
 
