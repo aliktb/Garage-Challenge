@@ -7,9 +7,9 @@ public class Bus extends Vehicle {
 
   // Constructor
 
-  public Bus(float engineSize, int topSpeed, String manufacturer, String mediumOfTravel,
-      int numberOfPassengers, String operator) {
-    super(engineSize, topSpeed, manufacturer, mediumOfTravel);
+  public Bus(String name, float engineSize, int topSpeed, String manufacturer,
+      String mediumOfTravel, int numberOfPassengers, String operator) {
+    super(name, engineSize, topSpeed, manufacturer, mediumOfTravel);
     this.numberOfPassengers = numberOfPassengers;
     this.operator = operator;
   }
@@ -18,9 +18,10 @@ public class Bus extends Vehicle {
 
   // Bus specific Methods
 
+  @Override
   public float calcBill() {
 
-    float bill = numberOfPassengers * this.getEngineSize();
+    float bill = numberOfPassengers * this.getEngineSize() + 1000;
 
     return bill;
 
@@ -49,12 +50,22 @@ public class Bus extends Vehicle {
     this.operator = operator;
   }
 
-  // toString() Method
+
 
   @Override
   public String toString() {
-    return "Bus [numberOfPassengers=" + numberOfPassengers + ", operator=" + operator + "]";
+    return "Bus [getName()=" + getName() + ", getEngineSize()=" + getEngineSize()
+        + ", getTopSpeed()=" + getTopSpeed() + ", getManufacturer()=" + getManufacturer()
+        + ", getMediumOfTravel()=" + getMediumOfTravel() + ", toString()=" + super.toString()
+        + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", numberOfPassengers="
+        + numberOfPassengers + ", operator=" + operator + ", calcBill()=" + calcBill()
+        + ", getNumberOfPassengers()=" + getNumberOfPassengers() + ", getOperator()="
+        + getOperator() + "]";
   }
+
+
+
+  // toString() Method
 
 
 
