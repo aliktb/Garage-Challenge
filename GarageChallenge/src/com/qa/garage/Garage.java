@@ -16,9 +16,11 @@ public class Garage {
 
   public Car A4 = new Car("A4", 2f, 155, "Audi", "Road", 240, 500);
 
-  public Bus londonBus = new Bus("londonBus", 4f, 60, "Dennis", "Bus Lane", 80, "TFL");
+  public Bus londonBus = new Bus("londonBus", 4f, 60, "Alexander Dennis", "Bus Lane", 80, "TFL");
 
   public Yacht everGiven = new Yacht("everGiven", 16, 60, "yachtcompany", "sea", 25000000, false);
+
+  public Bus bendyBus = new Bus("bendyBus", 3.5f, 45, "Scania", "Bus Lane", 50, "Not In Service");
 
 
   // fixes vehicle based on vehicle's bill
@@ -65,10 +67,7 @@ public class Garage {
   // CREATE
   public void addNewVehicle(Vehicle vehicleName) {
 
-
-
     listOfVehicles.add(vehicleName);
-
 
     System.out.println(vehicleName.getName() + " has been added to the garage");
 
@@ -76,26 +75,104 @@ public class Garage {
 
 
   // UPDATE
-  public void upgradeVehicle(Vehicle vehicleName, String parameterToChange, String value) {
-
+  public void upgradeVehicle(Vehicle vehicleName, String parameterToChange, float value,
+      String text) {
 
     switch (parameterToChange) {
+
       case "engineSize":
+        vehicleName.setEngineSize(value);
+        break;
+      case "topSpeed":
+        vehicleName.setTopSpeed((int) value);
+        break;
+      case "manufacturer":
+        vehicleName.setManufacturer(text);
+        break;
+      case "mediumOfTravel":
+        vehicleName.setMediumOfTravel(text);
+        break;
+      default:
 
-        // vehicleName.setEngineSize((float) value);
-
+        break;
 
     }
-
 
 
     if (vehicleName.getClass().getSimpleName().equals("Bus")) {
 
-      System.out.println(vehicleName);
+      Bus b = (Bus) vehicleName;
 
-    } else {
-      System.out.println("not a bus");
+
+      switch (parameterToChange) {
+
+        case "passengers":
+          b.setNumberOfPassengers((int) value);
+          break;
+        case "operator":
+          b.setOperator(text);
+          break;
+        default:
+          break;
+
+      }
     }
+
+    else if (vehicleName.getClass().getSimpleName().equals("Car")) {
+
+      Car c = (Car) vehicleName;
+
+
+      switch (parameterToChange) {
+
+        case "horsepower":
+          c.setHorsepower((int) value);
+          break;
+        case "range":
+          c.setRange((int) value);
+          break;
+        default:
+          break;
+
+      }
+    }
+
+    else if (vehicleName.getClass().getSimpleName().equals("Yacht")) {
+
+      Yacht y = (Yacht) vehicleName;
+
+      switch (parameterToChange) {
+
+        case "sail":
+          if (value == 0) {
+
+            y.setSails(false);
+
+          }
+
+          else {
+
+            y.setSails(true);
+
+          }
+
+          break;
+
+
+        case "cost":
+          y.setCost((int) value);
+          break;
+        default:
+          break;
+      }
+    }
+
+    else {
+
+      System.out.println("This vehicle does not belong to a type");
+
+    }
+
 
   }
 
@@ -108,6 +185,8 @@ public class Garage {
 
         listOfVehicles.remove(vehicle);
 
+        break;
+
       }
 
     }
@@ -119,6 +198,8 @@ public class Garage {
 
     listOfVehicles.clear();
 
+    System.out.println("Garage has been emptied");
+
   }
 
   // DELETE vehicles of same type
@@ -126,15 +207,16 @@ public class Garage {
   public void removeVehicleByType(String VehicleType) {
 
 
-    for (Vehicle vehicle : listOfVehicles) {
+    for (int i = listOfVehicles.size(); i < 0; i--) {
 
-      listOfVehicles.remove(vehicle);
+      if (listOfVehicles.get(i).getName().equals(VehicleType)) {
 
+        listOfVehicles.remove(i);
+
+      }
     }
-
-
-
   }
 
-
 }
+
+

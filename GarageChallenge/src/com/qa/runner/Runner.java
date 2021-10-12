@@ -20,11 +20,27 @@ public class Runner {
 
     myGarage.repair(myGarage.polo);
 
+    myGarage.addNewVehicle(myGarage.bendyBus);
+
     myGarage.repair(myGarage.londonBus);
 
-    // myGarage.upgradeVehicle(myGarage.londonBus);
+    System.out.println("////////////");
 
     myGarage.seeVehicleByID("londonBus");
+
+    myGarage.upgradeVehicle(myGarage.londonBus, "passengers", 10, "");
+
+    myGarage.seeVehicleByID("londonBus");
+
+    myGarage.removeVehicleByType("Car");
+
+    myGarage.removeVehicleByID("polo");
+
+    myGarage.seeAllVehicles();
+
+    myGarage.emptyGarage();
+
+    myGarage.seeAllVehicles();
 
 
 
