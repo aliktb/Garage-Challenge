@@ -7,7 +7,17 @@ public class Vehicle {
   private String manufacturer;
   private String mediumOfTravel;
 
+  // Constructor
 
+  public Vehicle(float engineSize, int topSpeed, String manufacturer, String mediumOfTravel) {
+    super();
+    this.engineSize = engineSize;
+    this.topSpeed = topSpeed;
+    this.manufacturer = manufacturer;
+    this.mediumOfTravel = mediumOfTravel;
+  }
+
+  // Getters & Setters
 
   public float getEngineSize() {
     return engineSize;
@@ -33,8 +43,6 @@ public class Vehicle {
     this.manufacturer = manufacturer;
   }
 
-
-
   public String getMediumOfTravel() {
     return mediumOfTravel;
   }
@@ -42,6 +50,8 @@ public class Vehicle {
   public void setMediumOfTravel(String mediumOfTravel) {
     this.mediumOfTravel = mediumOfTravel;
   }
+
+  // toString() Method
 
   @Override
   public String toString() {
