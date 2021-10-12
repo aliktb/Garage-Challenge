@@ -16,9 +16,11 @@ public class Garage {
 
   public Car A4 = new Car("A4", 2f, 155, "Audi", "Road", 240, 500);
 
-  public Bus londonBus = new Bus("londonBus", 4f, 60, "Dennis", "Bus Lane", 80, "TFL");
+  public Bus londonBus = new Bus("londonBus", 4f, 60, "Alexander Dennis", "Bus Lane", 80, "TFL");
 
   public Yacht everGiven = new Yacht("everGiven", 16, 60, "yachtcompany", "sea", 25000000, false);
+
+  public Bus bendyBus = new Bus("bendyBus", 3.5f, 45, "Scania", "Bus Lane", 50, "Not In Service");
 
 
   // fixes vehicle based on vehicle's bill
@@ -88,7 +90,6 @@ public class Garage {
     }
 
 
-
     if (vehicleName.getClass().getSimpleName().equals("Bus")) {
 
       System.out.println(vehicleName);
@@ -108,6 +109,8 @@ public class Garage {
 
         listOfVehicles.remove(vehicle);
 
+        break;
+
       }
 
     }
@@ -119,6 +122,8 @@ public class Garage {
 
     listOfVehicles.clear();
 
+    System.out.println("Garage has been emptied");
+
   }
 
   // DELETE vehicles of same type
@@ -126,15 +131,16 @@ public class Garage {
   public void removeVehicleByType(String VehicleType) {
 
 
-    for (Vehicle vehicle : listOfVehicles) {
+    for (int i = listOfVehicles.size(); i < 0; i--) {
 
-      listOfVehicles.remove(vehicle);
+      if (listOfVehicles.get(i).getName().equals(VehicleType)) {
 
+        listOfVehicles.remove(i);
+
+      }
     }
-
-
-
   }
 
-
 }
+
+
